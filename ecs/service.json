@@ -2,14 +2,14 @@
     {
       "name": "hello_world",
       "image": "hello-world",
-      "cpu": 10,
-      "memory": 128,
+      "cpu": 512,
+      "memory": 512,
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
           "awslogs-region": "eu-west-2",
           "awslogs-group": "hello_world",
-          "awslogs-stream-prefix": "complete-ecs"
+          "awslogs-stream-prefix": "hello-ecs"
         }
       },
       "portMappings": [
