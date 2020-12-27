@@ -6,13 +6,13 @@ resource "aws_lb" "test" {
 }
 
 resource "aws_lb_listener" "test" {
-  load_balancer_arn = "${aws_lb.test.arn}"
+  load_balancer_arn = aws_lb.test.arn
   port              = "80"
   protocol          = "TCP"
 
   default_action {
     type             = "forward"
-    target_group_arn = "${aws_lb_target_group.test.arn}"
+    target_group_arn = aws_lb_target_group.test.arn
   }
 }
 
@@ -23,5 +23,5 @@ resource "aws_lb_target_group" "test" {
   target_type = "instance"
   vpc_id   = "vpc-727bde1a"
 
-  depends_on = ["aws_lb.test"]
+  depends_on = [aws_lb.test]
 }

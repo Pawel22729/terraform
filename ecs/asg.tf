@@ -10,7 +10,7 @@ resource "aws_launch_configuration" "test" {
 }
 resource "aws_autoscaling_group" "test" {
   name                 = "terraform-asg-example"
-  launch_configuration = "${aws_launch_configuration.test.name}"
+  launch_configuration = aws_launch_configuration.test.name
   availability_zones = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
   min_size             = 1
   max_size             = 1
